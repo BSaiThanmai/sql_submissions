@@ -1,0 +1,389 @@
+to rebuild connection between server and workbench
+
+>>>win+r
+>>>services.msc
+
+
+ddl :-- data definition language :-- will work with only data and table architecture
+
+create  :-- we create data base and table 
+
+>>>creation of database:
+-------------------------------------------
+>>>create database database_name;
+
+will display databases:
+--------------------------
+>>>show databases;
+
+selecting database:
+-------------------------
+>>>use database_name;
+
+display the table:
+----------------------------
+>>>show tables;
+
+creation of table:
+-------------------------------
+>>>create table table_name(
+column_name datatype,
+column_name datatype
+
+);
+
+
+display the table properties 
+-------------------------------
+
+>>>describe table_name;
+>>>desc table_table;
+
+datatype :-- will identify the which type data it is
+
+numerical :-- will store the numerical type of data
+
+int      :-- will store the number without decimal point
+		>>>4 bytes
+bigint   :-- will store the number without decimal point
+		>>>8 bytes
+float        :-- will store the number with decimal
+		>>>4 bytes
+		>>>will store 5 values after decimal
+double	     :-- will store the number with decimal
+		>>> 8 bytes
+		>>>will store the 15 values after decimal
+decimal(s,p) :-- will store the number with decimal
+		>>>will select no.of values after decimal
+
+string    :-- will store the text type of data
+---------------------------------------------------
+varchar(s)  :--will store the text type of data
+		>>>250
+		>>>will reduce storage by data size
+char(s)     :-- will store the text type of data
+		>>>250
+		>>>it is fixed length
+text        :-- will store the text type of data
+
+
+date      :-- will store the date and time type data
+------------------------------------------------------
+date      :-- will store only date type of data
+		>>>'yyyy-mm-dd'
+time      :-- will store the time type of data
+		>>>'HH:MM:SS'
+datetime  :-- will store the both date and time
+		>>>'yyyy-mm-dd HH:MM:SS'
+=======================================================================================================================
+
+ddl:
+
+create 
+alter     :-- will perform operations on table 			architecture
+
+add column
+------------------------------------
+at last:
+----------
+>>>alter table table_name add column column_name datatype;
+
+at middle:
+----------------
+>>>alter table table_name add column column_name datatype after exsting_column_name;
+
+at start:
+----------------
+>>>alter table table_name add column column_name datatype first;
+
+
+rename column  :-- will change the column_name
+--------------------------------------------------
+>>>alter table table_name rename column old_column_name to new_column_name;
+
+drop column     :-- remove the column from table 
+---------------------------------------------------------
+>>>alter table table_name drop column column_name;
+
+change datatype  :-- modify data type
+-----------------------------------------------
+>>>alter table table_name modify column column_name new_datatype;
+
+
+rename    :-- to modify table name 
+--------------------------------------------------------
+
+>>>rename table old_table_name to new_table_name;
+
+
+drop        :-- will remove entire table from database i.e table data and table 			architecture
+-------------------------------------------------
+>>>drop table table_name;
+
+
+truncate    :-- will remove the entire table data except table architecture
+----------------------------------------------------
+>>>truncate table table_name;
+
+>>>drop database database_name;
+
+
+=============================================================================
+
+use d20r;
+
+show tables;
+
+select * from student;
+
+
+select * from vandebharat;
+
+
+alter table vandebharat add column dept_time time;
+
+alter table vandebharat add column payment varchar(100) after price;
+
+alter table vandebharat add column status varchar(100) after payment;
+
+
+alter table vandebharat add column train_no int first;
+
+select * from vandebharat;
+
+alter table vandebharat add column P_Name varchar(100) after pnr;
+
+
+alter table vandebharat rename column payment to arr_time;
+
+select * from vandebharat;
+
+alter table vandebharat drop column price;
+
+
+alter table vandebharat rename column seat to berth_no;
+
+alter table vandebharat drop column status;
+
+desc vandebharat;
+
+select * from vandebharat;
+
+alter table vandebharat modify column arr_time time;
+
+insert into vandebharat values(20807,1234,'Surya','10:12:13',33,'11:12:13');
+
+alter table vandebharat modify column pnr varchar(100);
+
+desc vandebharat;
+
+select * from vandebharat;
+
+alter table vandebharat modify column P_name int;
+
+alter table vandebharat modify column pnr float;
+
+select * from vandebharat;
+
+show tables;
+
+rename table vandebharat to palnadu;
+
+select * from palnadu;
+
+truncate table palnadu;
+
+drop table palnadu;
+
+show tables;
+
+drop database d20r;
+
+show databases;
+
+======================================================================================================
+
+dml :-- data manipulation language :-- will perform operation on table data
+
+
+insert    :-- will send the into table or will send new 		record into table
+single record:
+------------------------------
+>>>insert into table_name values(v1,v2,v3,v4-----);
+
+multiple records:
+-------------------------------
+>>>insert into table_name values(v1,v2,v3,v4-----),
+(v1,v2,v3,v4-------),(v1,v2,v3,v4----);
+
+selected columns:
+------------------------------
+>>>insert into table_name(column_name1,column_name2) values(v1,v2);
+
+before perform update or delete we turnoff security options :
+-------------------------------------------------------------
+>>>set sql_safe_updates=0;
+
+
+
+update  :-- will modify or change the already existing data
+-----------------------------------------------------------
+
+>>>update table_name set column_name=new_data where condition;
+
+
+>>>update table_name set column_name=new_data,column_name=new_data where condition; 
+
+
+delete
+
+
+===========================================================================
+
+create database d20r;
+
+show databases;
+
+use d20r;
+
+show tables;
+
+create table hari(
+sno int,
+name varchar(100),
+age int,
+mobile bigint
+);
+
+
+show tables;
+
+select * from hari;
+
+insert into hari values(1,'gopi',17,'1234567890');
+
+
+
+insert into hari values(2,'hemanth',22,1234567890);
+
+select * from hari;
+
+insert into hari values(3,'mubeena',21,0987654321),
+(4,'surya',26,6789054321),
+(5,'dheeraj',47,1234567890);
+
+select * from hari;
+
+insert into hari(sno,age) values(6,100);
+
+
+
+insert into hari(name,mobile) values('ravi',5678432190);
+
+select * from hari;
+
+
+set sql_safe_updates=0;
+
+update hari set name='manoj' where name='gopi';
+
+
+update hari set age=13 where age>25;
+
+select * from hari;
+
+update hari set name='teja' where sno=3;
+
+update hari set name='sai ram' where sno=5;
+
+
+update hari set name='mahesh babu',mobile=1234567890,age=18 where sno=6;
+
+select * from hari;
+
+update hari set sno=7 where sno is null;
+=====================================================================================================
+
+dml :
+
+insert 
+update
+delete   :-- will remove row based on condition
+
+>>>delete from table_name where condition;
+
+
+dql :-- data query language :-- will used to display the 				table data
+
+>>>select,from
+
+
+
+>>>* --> select all columns in a table
+>>> column_name 
+
+======================================================
+
+use d20r;
+
+show tables;
+
+select * from hari;
+
+set sql_safe_updates=0;
+
+delete from hari where sno=5;
+
+
+
+delete from hari where sno>=6;
+
+
+select * from hari;
+
+delete from hari;
+
+select * from hari;
+
+rollback;
+
+insert into hari values(1,'surya',26,1234567890),
+(2,'vikas',22,0987654321),
+(3,'chandu',15,6789054321);
+
+select * from hari;
+
+
+
+set autocommit=0;
+
+
+delete from hari;
+
+select * from hari;
+
+rollback;
+
+truncate table hari;
+
+
+show tables;
+
+
+select name,mobile from hari;
+
+create table python(
+sno int,
+name varchar(100),
+topic varchar(100),
+author varchar(100)
+);
+
+
+show tables;
+
+select * from python;
+
+insert into python values(1,'surya','variable','guidovanrossum');
+
+insert into python(name,topic) values('shankar','oops');
