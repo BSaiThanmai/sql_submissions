@@ -1,0 +1,23 @@
+-- 1. Display names that start with vowels
+SELECT NAME
+FROM CITY
+WHERE NAME LIKE 'A%'
+   OR NAME LIKE 'E%'
+   OR NAME LIKE 'I%'
+   OR NAME LIKE 'O%'
+   OR NAME LIKE 'U%';
+
+-- 2. Display names that end with vowels
+SELECT NAME
+FROM CITY
+WHERE NAME LIKE '%A'
+   OR NAME LIKE '%E'
+   OR NAME LIKE '%I'
+   OR NAME LIKE '%O'
+   OR NAME LIKE '%U';
+
+-- 3. Display names that start and end with vowels
+SELECT NAME
+FROM CITY
+WHERE (NAME LIKE 'A%' OR NAME LIKE 'E%' OR NAME LIKE 'I%' OR NAME LIKE 'O%' OR NAME LIKE 'U%')
+  AND (NAME LIKE '%A' OR NAME LIKE '%E' OR NAME LIKE '%I' OR NAME LIKE '%O' OR NAME LIKE '%U');
